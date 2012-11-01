@@ -1,0 +1,21 @@
+# Image Cache using phpThumb and Mod_Rewrite
+#
+# Copyright (c) 2012 Brett O'Donnell <brett@mrphp.com.au>
+# Source Code: https://github.com/cornernote/php-content-delivery
+# Home Page: http://mrphp.com.au/blog/content-delivery-networks-php
+# License: GPLv3
+
+Options +FollowSymLinks
+
+<IfModule mod_autoindex.c>
+    IndexIgnore */*
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    # if a directory or a file exists, use it directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # otherwise forward it to index.php
+    RewriteRule . index.php
+</IfModule>
