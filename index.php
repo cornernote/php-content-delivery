@@ -19,7 +19,7 @@ if (!$error) {
     if ($file) {
         $local_file = dirname($_SERVER['SCRIPT_FILENAME']) . '/' . $file;
         $local_enc_file = dirname($_SERVER['SCRIPT_FILENAME']) . '/md5/' . substr(md5($file), 0, 2) . '/' . substr(md5($file), 2, 4) . '/' . substr(md5($file), 6, 6) . '/' . md5($file);
-        $remote_file = 'http://img.cdn.thereadingroom.com/img/covers/' . $file;
+        $remote_file = 'http://img.cdn.example.local/img/covers/' . $file;
     }
     else {
         $error = true;
